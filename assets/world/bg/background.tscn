@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyx5hw6kkii4w"]
+
+[ext_resource type="Texture2D" uid="uid://bpyib6a7s3oc2" path="res://assets/world/bg/Background1.png" id="1_jae3k"]
+[ext_resource type="Script" path="res://assets/world/bg/background.gd" id="2_07acm"]
+
+[node name="Background" type="Sprite2D"]
+z_index = -1
+texture_repeat = 2
+position = Vector2(96, 112)
+texture = ExtResource("1_jae3k")
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 256)
+script = ExtResource("2_07acm")

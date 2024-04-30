@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://dk2rxn55bmuv8"]
+
+[ext_resource type="Script" path="res://assets/player/player.gd" id="1_8quwb"]
+[ext_resource type="Texture2D" uid="uid://bl36pxg61vlqv" path="res://assets/player/AllBird1.png" id="2_iukhc"]
+[ext_resource type="AudioStream" uid="uid://db6j24qtndwi6" path="res://assets/sfx/wing.ogg" id="3_1geji"]
+[ext_resource type="AudioStream" uid="uid://dv6euocel3yx7" path="res://assets/sfx/hit.ogg" id="4_y4fyr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooljs"]
+atlas = ExtResource("2_iukhc")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i2lr"]
+atlas = ExtResource("2_iukhc")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrr4t"]
+atlas = ExtResource("2_iukhc")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bddwk"]
+atlas = ExtResource("2_iukhc")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6it6r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooljs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0i2lr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrr4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bddwk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dct7o"]
+radius = 5.0
+
+[node name="Player" type="Area2D"]
+z_index = 2
+collision_mask = 3
+script = ExtResource("1_8quwb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["player"]]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_6it6r")
+autoplay = "default"
+frame_progress = 0.15903
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_dct7o")
+
+[node name="TapLabel" type="Label" parent="."]
+offset_left = 18.0
+offset_top = -15.0
+offset_right = 58.0
+offset_bottom = -2.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "<-Tap"
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_1geji")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("4_y4fyr")

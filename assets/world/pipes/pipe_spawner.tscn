@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo7k2b10hv07p"]
+
+[ext_resource type="Script" path="res://assets/world/pipes/pipe_spawner.gd" id="1_ntqju"]
+[ext_resource type="PackedScene" uid="uid://upskuxmu4wda" path="res://assets/world/pipes/pipes.tscn" id="2_lmiss"]
+
+[node name="PipeSpawner" type="Node"]
+script = ExtResource("1_ntqju")
+pipe_scene = ExtResource("2_lmiss")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(208, 128)
+
+[node name="EndPoint" type="Marker2D" parent="."]
+position = Vector2(-32, 128)
+
+[node name="PipeContainer" type="Node2D" parent="."]

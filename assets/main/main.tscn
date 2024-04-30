@@ -1,0 +1,35 @@
+[gd_scene load_steps=10 format=3 uid="uid://bv1m0sip52jsf"]
+
+[ext_resource type="Script" path="res://assets/main/main.gd" id="1_o7jxg"]
+[ext_resource type="PackedScene" uid="uid://cpp0kpsoybspc" path="res://assets/components/score_component/score_component.tscn" id="2_www84"]
+[ext_resource type="PackedScene" uid="uid://bo7k2b10hv07p" path="res://assets/world/pipes/pipe_spawner.tscn" id="3_kqm5f"]
+[ext_resource type="PackedScene" uid="uid://rta2nweqasyj" path="res://assets/ui/score_ui/score_ui.tscn" id="4_mkapv"]
+[ext_resource type="PackedScene" uid="uid://b7m4r8kci1wjr" path="res://assets/ui/title_screen/title_screen.tscn" id="4_q0h15"]
+[ext_resource type="PackedScene" uid="uid://dk2rxn55bmuv8" path="res://assets/player/player.tscn" id="5_n1as3"]
+[ext_resource type="PackedScene" uid="uid://t7nvh54cg2i6" path="res://assets/world/ground/ground.tscn" id="6_o5rfg"]
+[ext_resource type="PackedScene" uid="uid://dyx5hw6kkii4w" path="res://assets/world/bg/background.tscn" id="7_acjfq"]
+[ext_resource type="PackedScene" uid="uid://ceajuhvyx4kos" path="res://assets/ui/pause_button/pause.tscn" id="9_1cuus"]
+
+[node name="Main" type="Node" node_paths=PackedStringArray("score_component")]
+script = ExtResource("1_o7jxg")
+score_component = NodePath("ScoreComponent")
+
+[node name="ScoreComponent" parent="." instance=ExtResource("2_www84")]
+
+[node name="PipeSpawner" parent="." instance=ExtResource("3_kqm5f")]
+
+[node name="TitleScreen" parent="." instance=ExtResource("4_q0h15")]
+
+[node name="ScoreUI" parent="." node_paths=PackedStringArray("score_component") instance=ExtResource("4_mkapv")]
+score_component = NodePath("../ScoreComponent")
+
+[node name="Pause" parent="." instance=ExtResource("9_1cuus")]
+
+[node name="Player" parent="." instance=ExtResource("5_n1as3")]
+position = Vector2(56, 144)
+
+[node name="Ground" parent="." instance=ExtResource("6_o5rfg")]
+position = Vector2(0, 240)
+
+[node name="Background" parent="." instance=ExtResource("7_acjfq")]
+metadata/_edit_lock_ = true

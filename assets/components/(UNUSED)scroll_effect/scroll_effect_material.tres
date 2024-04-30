@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b14fj2j00ufef"]
+
+[ext_resource type="Shader" path="res://assets/components/(UNUSED)scroll_effect/scroll_effect.gdshader" id="1_e483r"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_e483r")
+shader_parameter/motion = Vector2(0, 0)
+shader_parameter/scale = 1.0
+shader_parameter/offset = Vector2(0, 16)
